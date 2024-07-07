@@ -7,6 +7,7 @@
         Oda Numarası: {{reservation.roomNumber}} <br>
         Giriş Tarihi: {{reservation.checkInDate}} <br>
         Çıkış Tarihi: {{reservation.checkOutDate}} <br>
+        <button (click)="deleteReservation(reservation.id)">❌</button>
     </li>
 </ul>
 
