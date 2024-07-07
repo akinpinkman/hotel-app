@@ -25,6 +25,6 @@
         <input type="number" formControlName="roomNumber">
     </div>
 
-    <button type="submit">Rezervasyon yap</button>
+    <button type="submit" [disabled]="reservationForm.invalid">Rezervasyon yap</button>
 
 </form>
