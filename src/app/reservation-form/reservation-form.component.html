@@ -3,26 +3,43 @@
     <div>
         <label>Giriş Tarihi:</label>
         <input type="date" formControlName="checkInDate">
+        <div *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">Giriş
+            tarihi
+            belirtin
+        </div>
     </div>
 
     <div>
         <label>Çıkış Tarihi:</label>
         <input type="date" formControlName="checkOutDate">
+        <div *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">Çıkış
+            tarihi
+            belirtin
+        </div>
     </div>
 
     <div>
         <label>Konuk Adı:</label>
         <input type="text" formControlName="guestName">
+        <div *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">Konuk adı
+            girin
+        </div>
     </div>
 
     <div>
         <label>Konuk Maili:</label>
         <input type="email" formControlName="guestEmail">
+        <div *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">Konuk
+            maili girin
+        </div>
     </div>
 
     <div>
         <label>Oda Numarası:</label>
         <input type="number" formControlName="roomNumber">
+        <div *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">Oda
+            numarası girin
+        </div>
     </div>
 
     <button type="submit" [disabled]="reservationForm.invalid">Rezervasyon yap</button>
