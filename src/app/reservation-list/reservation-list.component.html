@@ -1,20 +1,37 @@
 <app-home></app-home>
 
-<h2>Rezervasyon Listesi</h2>
+<h3 class="mt-5 mb-3">Rezervasyon Listesi</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Konuk</th>
+            <th>Mail</th>
+            <th>Oda Numarası</th>
+            <th>Giriş</th>
+            <th>Çıkış</th>
+            <th>Eylemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let reservation of reservations">
+            <td>{{reservation.guestName}}</td>
+            <td>{{reservation.guestEmail}}</td>
+            <td>{{reservation.roomNumber}}</td>
+            <td> {{reservation.checkInDate}} </td>
+            <td>{{reservation.checkOutDate}}</td>
+            <td>
+                <button class="btn btn-sm btn-danger mx-1" (click)="deleteReservation(reservation.id)">Sil</button>
+                <button class="btn btn-sm btn-secondary mx-1" [routerLink]="['/edit', reservation.id]">Düzenle</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 <ul *ngIf="reservations.length; else noReservation">
-    <li *ngFor="let reservation of reservations">
-        Konuk Adı: {{reservation.guestName}} <br>
-        Mail Adresi: {{reservation.guestEmail}} <br>
-        Oda Numarası: {{reservation.roomNumber}} <br>
-        Giriş Tarihi: {{reservation.checkInDate}} <br>
-        Çıkış Tarihi: {{reservation.checkOutDate}} <br>
-        <button (click)="deleteReservation(reservation.id)">Delete ❌</button>
-        <button [routerLink]="['/edit', reservation.id]">Edit 📝</button>
-    </li>
+
 </ul>
 
-<!-- (Local Ref) -->
 <ng-template #noReservation>
-    <p>Rezervasyon bulunmamaktadır.</p>
+    <p>No reservation available.</p>
 </ng-template>
