@@ -1,49 +1,59 @@
 <app-home></app-home>
 
+<h3 class="mt-5 mb-3">Yeni rezervasyon oluştur</h3>
+
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
 
-    <div>
-        <label>Giriş Tarihi:</label>
-        <input type="date" formControlName="checkInDate">
-        <div *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">Giriş
-            tarihi
-            belirtin
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Giriş Tarihi:</label>
+            <input class="form-control" type="date" formControlName="checkInDate">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">
+                Giriş Tarihi gerekli.
+            </small>
+        </div>
+
+        <div class="col">
+            <label class="form-label">Çıkış Tarihi:</label>
+            <input class="form-control" type="date" formControlName="checkOutDate">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">
+                Çıkış Tarihi gerekli.
+            </small>
         </div>
     </div>
 
-    <div>
-        <label>Çıkış Tarihi:</label>
-        <input type="date" formControlName="checkOutDate">
-        <div *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">Çıkış
-            tarihi
-            belirtin
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Konuk Adı:</label>
+            <input class="form-control" type="text" formControlName="guestName">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">
+                Konuk Adı gerekli.
+            </small>
+        </div>
+
+        <div class="col">
+            <label class="form-label">Konuk Maili:</label>
+            <input class="form-control" type="email" formControlName="guestEmail">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">
+                Konuk Maili gerekli.
+            </small>
         </div>
     </div>
 
-    <div>
-        <label>Konuk Adı:</label>
-        <input type="text" formControlName="guestName">
-        <div *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">Konuk adı
-            girin
+    <div class="row mb-3">
+        <div class="col-3">
+            <label class="form-label">Oda Numarası:</label>
+            <input class="form-control" type="number" formControlName="roomNumber">
+            <small class="text-danger"
+                *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">
+                Oda Numarası gerekli.
+            </small>
         </div>
     </div>
 
-    <div>
-        <label>Konuk Maili:</label>
-        <input type="email" formControlName="guestEmail">
-        <div *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">Konuk
-            maili girin
-        </div>
-    </div>
-
-    <div>
-        <label>Oda Numarası:</label>
-        <input type="number" formControlName="roomNumber">
-        <div *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">Oda
-            numarası girin
-        </div>
-    </div>
-
-    <button type="submit" [disabled]="reservationForm.invalid">Rezervasyon yap</button>
-
+    <button class="btn btn-primary" type="submit" [disabled]="reservationForm.invalid">Gönder</button>
 </form>
