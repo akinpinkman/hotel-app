@@ -1,1 +1,12 @@
-<p>reservation-list works!</p>
+<h2>Rezervasyon Listesi</h2>
+
+<ul>
+    <li *ngFor="let reservation of reservations">
+        Konuk Adı:{{reservation.guestName}} <br>
+        Mail Adresi:{{reservation.guestEmail}} <br>
+        Oda Numarası:{{reservation.roomNumber}} <br>
+        Giriş Tarihi:{{reservation.checkInDate}} <br>
+        Çıkış Tarihi:{{reservation.checkOutDate}} <br>
+
+    </li>
+</ul>
