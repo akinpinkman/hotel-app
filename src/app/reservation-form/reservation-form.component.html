@@ -1,3 +1,30 @@
-<form [formGroup]="reservationForm">
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label>Giriş Tarihi:</label>
+        <input type="date" formControlName="checkInDate">
+    </div>
+
+    <div>
+        <label>Çıkış Tarihi:</label>
+        <input type="date" formControlName="checkOutDate">
+    </div>
+
+    <div>
+        <label>Konuk Adı:</label>
+        <input type="text" formControlName="guestName">
+    </div>
+
+    <div>
+        <label>Konuk Maili:</label>
+        <input type="email" formControlName="guestEmail">
+    </div>
+
+    <div>
+        <label>Oda Numarası:</label>
+        <input type="number" formControlName="roomNumber">
+    </div>
+
+    <button type="submit">Rezervasyon yap</button>
 
 </form>
