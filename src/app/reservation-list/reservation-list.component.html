@@ -1,12 +1,16 @@
 <h2>Rezervasyon Listesi</h2>
 
-<ul>
+<ul *ngIf="reservations.length; else noReservation">
     <li *ngFor="let reservation of reservations">
-        Konuk Adı:{{reservation.guestName}} <br>
-        Mail Adresi:{{reservation.guestEmail}} <br>
-        Oda Numarası:{{reservation.roomNumber}} <br>
-        Giriş Tarihi:{{reservation.checkInDate}} <br>
-        Çıkış Tarihi:{{reservation.checkOutDate}} <br>
-
+        Konuk Adı: {{reservation.guestName}} <br>
+        Mail Adresi: {{reservation.guestEmail}} <br>
+        Oda Numarası: {{reservation.roomNumber}} <br>
+        Giriş Tarihi: {{reservation.checkInDate}} <br>
+        Çıkış Tarihi: {{reservation.checkOutDate}} <br>
     </li>
 </ul>
+
+<!-- (Local Ref) -->
+<ng-template #noReservation>
+    <p>Rezervasyon bulunmamaktadır.</p>
+</ng-template>
